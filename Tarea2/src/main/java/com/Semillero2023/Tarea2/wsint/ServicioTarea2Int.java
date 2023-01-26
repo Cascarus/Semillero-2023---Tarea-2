@@ -2,8 +2,11 @@ package com.Semillero2023.Tarea2.wsint;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,5 +55,20 @@ public interface ServicioTarea2Int {
 	
 	@PostMapping("/postEstudiante")
 	public Estudiante postEstudiante(@RequestBody Estudiante estudiante);
+	
+	@DeleteMapping("/deleteBitacora/{idBitacora}")
+	public ResponseEntity<String> deleteBitacora(@PathVariable("idBitacora") Integer idBitacora);
+	
+	@DeleteMapping("/deleteUsuario/{idUsuario}")
+	public ResponseEntity<String> deleteUsuario(@PathVariable("idUsuario") Integer idUsuario);
+	
+	@DeleteMapping("/deleteFactura/{idFactura}")
+	public ResponseEntity<String> deleteFactura(@PathVariable("idFactura") Integer idFactura);
+	
+	@DeleteMapping("/deleteCarrera/{idCarrera}")
+	public ResponseEntity<String> deleteCarrera(@PathVariable("idCarrera") Integer idCarrera);
+	
+	@DeleteMapping("/deleteEstudiante/{idEstudiante}")
+	public ResponseEntity<String> deleteEstudiante(@PathVariable("idEstudiante") Integer idEstudiante);
 	
 }

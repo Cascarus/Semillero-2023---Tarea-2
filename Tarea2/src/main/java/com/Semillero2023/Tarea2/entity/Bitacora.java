@@ -1,6 +1,7 @@
 package com.Semillero2023.Tarea2.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -8,8 +9,6 @@ import org.hibernate.annotations.DynamicUpdate;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -23,14 +22,13 @@ public class Bitacora implements Serializable{
 	@Id
 	@Basic(optional = false)
 	@Column(name="IDBITACORA")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer idBitacora;
 	
 	@Column(name="DETALLE")
 	private String detalle;
 	
 	@Column(name="FECHA")
-	private String fecha;
+	private Date fecha;
 	
 	public Integer getIdBitacora() {
 		return idBitacora;
@@ -44,10 +42,10 @@ public class Bitacora implements Serializable{
 	public void setDetalle(String detalle) {
 		this.detalle = detalle;
 	}
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	
