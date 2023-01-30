@@ -1,6 +1,7 @@
 package com.Semillero2023.Tarea2.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -32,7 +33,7 @@ public class Factura implements Serializable{
 	private Integer nit;
 	
 	@Column(name="FECHA")
-	private String fecha;
+	private Date fecha;
 	
 	@Column(name="TOTAL")
 	private Double total;
@@ -53,11 +54,11 @@ public class Factura implements Serializable{
 		this.nit = nit;
 	}
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

@@ -33,6 +33,9 @@ public class Usuario implements Serializable{
 	@Column(name="TELEFONO")
 	private String telefono;
 	
+	@Column(name="CORREO")
+	private String correo;
+	
 	@OneToMany(mappedBy ="nit", fetch = FetchType.LAZY)
 	private List<Factura> facturas = new ArrayList<>();
 	
@@ -68,6 +71,14 @@ public class Usuario implements Serializable{
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	public List<Factura> getFacturas() {

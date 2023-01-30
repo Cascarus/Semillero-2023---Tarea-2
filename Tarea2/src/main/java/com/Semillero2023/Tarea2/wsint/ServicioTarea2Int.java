@@ -1,6 +1,8 @@
 package com.Semillero2023.Tarea2.wsint;
 
+import java.text.ParseException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,11 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Semillero2023.Tarea2.entity.Bitacora;
 import com.Semillero2023.Tarea2.entity.Carrera;
+import com.Semillero2023.Tarea2.entity.CarreraEstudianteDTO;
 import com.Semillero2023.Tarea2.entity.Estudiante;
+import com.Semillero2023.Tarea2.entity.EstudianteV2;
 import com.Semillero2023.Tarea2.entity.Factura;
 import com.Semillero2023.Tarea2.entity.Usuario;
 
@@ -71,4 +76,24 @@ public interface ServicioTarea2Int {
 	@DeleteMapping("/deleteEstudiante/{idEstudiante}")
 	public ResponseEntity<String> deleteEstudiante(@PathVariable("idEstudiante") Integer idEstudiante);
 	
+	@GetMapping("/getUsrByCorreo")
+	public List<Usuario> getCorreo(@RequestParam(name = "correo") String correo);
+	
+	@GetMapping("/getFactByTotal/{total}")
+	public List<Factura> getFactByTotal(@PathVariable("total") Double total);
+	
+	@GetMapping("/getFactByFecha")
+	public List<Factura> getFactByFecha(@RequestParam(name = "fecha") String fecha) throws ParseException;
+	
+	@GetMapping("/getLogByFecha")
+	public List<Bitacora> getLogByFecha(@RequestParam(name = "fecha") String fecha) throws ParseException;
+	
+	@GetMapping("/getUsrByNit/{nit}")
+	public Usuario getUsrByNit(@PathVariable("nit") Integer nit);
+	
+	@GetMapping("/getUsrCarJoin/{promedio}")
+	public List<Map<String,Object>> getUsrCarJoin(@PathVariable("promedio") Double promedio);
+	
+	@PostMapping("/postAddEstudiante")
+	public void postAddSP(@RequestBody Estudiante estudiante);
 }

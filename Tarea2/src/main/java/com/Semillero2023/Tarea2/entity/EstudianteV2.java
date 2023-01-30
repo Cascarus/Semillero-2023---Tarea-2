@@ -7,14 +7,12 @@ import org.hibernate.annotations.DynamicUpdate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="ESTUDIANTE")
 @DynamicUpdate @DynamicInsert
-public class Estudiante implements Serializable{
+public class EstudianteV2 implements Serializable{
 
 	private static final long serialVersionUID = 348495951197852689L;
 	
@@ -25,9 +23,8 @@ public class Estudiante implements Serializable{
 	@Column(name="NOMBRE")
 	private String nombre;
 	
-	@ManyToOne
-	@JoinColumn(name = "IDCARRERA")
-	private Carrera idCarrera;
+	@Column(name = "IDCARRERA")
+	private Integer idCarrera;
 	
 	@Column(name="PROMEDIO")
 	private Double promedio;
@@ -48,11 +45,11 @@ public class Estudiante implements Serializable{
 		this.nombre = nombre;
 	}
 
-	public Carrera getIdCarrera() {
+	public Integer getIdCarrera() {
 		return idCarrera;
 	}
 
-	public void setIdCarrera(Carrera idCarrera) {
+	public void setIdCarrera(Integer idCarrera) {
 		this.idCarrera = idCarrera;
 	}
 
